@@ -1,0 +1,624 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>prod</groupId>
+	<artifactId>prod</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>prod</name>
+	<description>mobile backend</description>
+	
+	<repositories>
+		<repository>
+			<id>local-maven-repo</id>
+			<url>${project.basedir}/WebContent/WEB-INF</url>
+		</repository>
+	</repositories>
+	<build>
+		<testSourceDirectory>src/main/test</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resource</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.auth0/auth0 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>jasper</artifactId>
+			<version>6.0.32</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>auth0</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>7.48.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/activation.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>antlr-2.7.6</groupId>
+			<artifactId>antlr-2.7.6</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/antlr-2.7.6.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>asm-3.1</groupId>
+			<artifactId>asm-3.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/asm-3.1.jar</systemPath>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>asm-attrs</groupId>
+			<artifactId>asm-attrs</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/asm-attrs.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/asm.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>aws-java-sdk-1.11.361</groupId>
+			<artifactId>aws-java-sdk-1.11.361</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/aws-java-sdk-1.11.361.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>bcprov-jdk15on-154</groupId>
+			<artifactId>bcprov-jdk15on-154</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/bcprov-jdk15on-154.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>cassandra-driver-core-3.0.0</groupId>
+			<artifactId>cassandra-driver-core-3.0.0</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/cassandra-driver-core-3.0.0.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-codec-1.9</groupId>
+			<artifactId>commons-codec-1.9</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/commons-codec-1.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections-2.1.1</groupId>
+			<artifactId>commons-collections-2.1.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/commons-collections-2.1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload-1.3.3</groupId>
+			<artifactId>commons-fileupload-1.3.3</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/commons-fileupload-1.3.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io-2.6</groupId>
+			<artifactId>commons-io-2.6</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/commons-io-2.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging-1.0.4</groupId>
+			<artifactId>commons-logging-1.0.4</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/commons-logging-1.0.4.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>dom4j-1.6.1</groupId>
+			<artifactId>dom4j-1.6.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/dom4j-1.6.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>gson-2.2.2</groupId>
+			<artifactId>gson-2.2.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/gson-2.2.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>guava-19.0</groupId>
+			<artifactId>guava-19.0</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/guava-19.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>hibernate3</groupId>
+			<artifactId>hibernate3</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/hibernate3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/hsqldb.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>httpclient-4.4</groupId>
+			<artifactId>httpclient-4.4</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/httpclient-4.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>httpcore-4.4</groupId>
+			<artifactId>httpcore-4.4</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/httpcore-4.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itext-pdfa-5.5.9-javadoc</groupId>
+			<artifactId>itext-pdfa-5.5.9-javadoc</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itext-pdfa-5.5.9-javadoc.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itext-pdfa-5.5.9-sources</groupId>
+			<artifactId>itext-pdfa-5.5.9-sources</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itext-pdfa-5.5.9-sources.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>itext-pdfa-5.5.9</groupId>
+			<artifactId>itext-pdfa-5.5.9</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itext-pdfa-5.5.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itext-xtra-5.5.9-javadoc</groupId>
+			<artifactId>itext-xtra-5.5.9-javadoc</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itext-xtra-5.5.9-javadoc.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itext-xtra-5.5.9-sources</groupId>
+			<artifactId>itext-xtra-5.5.9-sources</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itext-xtra-5.5.9-sources.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itext-xtra-5.5.9</groupId>
+			<artifactId>itext-xtra-5.5.9</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itext-xtra-5.5.9.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>itextpdf-5.5.9-javadoc</groupId>
+			<artifactId>itextpdf-5.5.9-javadoc</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itextpdf-5.5.9-javadoc.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itextpdf-5.5.9-sources</groupId>
+			<artifactId>itextpdf-5.5.9-sources</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itextpdf-5.5.9-sources.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>itextpdf-5.5.9</groupId>
+			<artifactId>itextpdf-5.5.9</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/itextpdf-5.5.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson-annotations-2.9.0</groupId>
+			<artifactId>jackson-annotations-2.9.0</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-annotations-2.9.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jackson-core-2.9.7</groupId>
+			<artifactId>jackson-core-2.9.7</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-core-2.9.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson-core-asl-1.9.2</groupId>
+			<artifactId>jackson-core-asl-1.9.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-core-asl-1.9.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson-databind-2.9.7</groupId>
+			<artifactId>jackson-databind-2.9.7</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-databind-2.9.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson-jaxrs-1.9.2</groupId>
+			<artifactId>jackson-jaxrs-1.9.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-jaxrs-1.9.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jackson-mapper-asl-1.9.2</groupId>
+			<artifactId>jackson-mapper-asl-1.9.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-mapper-asl-1.9.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson-xc-1.9.2</groupId>
+			<artifactId>jackson-xc-1.9.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jackson-xc-1.9.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>java-json</groupId>
+			<artifactId>java-json</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/java-json.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jaxen-1.1-beta-7</groupId>
+			<artifactId>jaxen-1.1-beta-7</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jaxen-1.1-beta-7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jdbc2_0-stdext</groupId>
+			<artifactId>jdbc2_0-stdext</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jdbc2_0-stdext.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jersey-client-1.14</groupId>
+			<artifactId>jersey-client-1.14</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jersey-client-1.14.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jersey-core-1.14</groupId>
+			<artifactId>jersey-core-1.14</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jersey-core-1.14.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jersey-json-1.14</groupId>
+			<artifactId>jersey-json-1.14</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jersey-json-1.14.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jersey-server-1.14</groupId>
+			<artifactId>jersey-server-1.14</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jersey-server-1.14.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jersey-servlet-1.14</groupId>
+			<artifactId>jersey-servlet-1.14</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jersey-servlet-1.14.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jettison-1.1</groupId>
+			<artifactId>jettison-1.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jettison-1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time-2.1</groupId>
+			<artifactId>joda-time-2.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/joda-time-2.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jsr311-api-1.1.1</groupId>
+			<artifactId>jsr311-api-1.1.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jta</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/jta.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>log4j-1.2.17</groupId>
+			<artifactId>log4j-1.2.17</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/log4j-1.2.17.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/mail.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>metrics-core-3.1.2</groupId>
+			<artifactId>metrics-core-3.1.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/metrics-core-3.1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>netty-all-4.0.36.Final</groupId>
+			<artifactId>netty-all-4.0.36.Final</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/netty-all-4.0.36.Final.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>poi-3.10.1</groupId>
+			<artifactId>poi-3.10.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/poi-3.10.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>poi-ooxml-3.10.1</groupId>
+			<artifactId>poi-ooxml-3.10.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/poi-ooxml-3.10.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>poi-ooxml-schemas-3.10.1</groupId>
+			<artifactId>poi-ooxml-schemas-3.10.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/poi-ooxml-schemas-3.10.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>postgresql-8.1-404.jdbc3</groupId>
+			<artifactId>postgresql-8.1-404.jdbc3</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/postgresql-8.1-404.jdbc3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>slf4j-api-1.7.5</groupId>
+			<artifactId>slf4j-api-1.7.5</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/slf4j-api-1.7.5.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>stax-api-1.0.1</groupId>
+			<artifactId>stax-api-1.0.1</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/stax-api-1.0.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>xerces-2.6.2</groupId>
+			<artifactId>xerces-2.6.2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/xerces-2.6.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/xml-apis.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlbeans-2.4.0</groupId>
+			<artifactId>xmlbeans-2.4.0</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/xmlbeans-2.4.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>xmlworker-5.5.9-javadoc</groupId>
+			<artifactId>xmlworker-5.5.9-javadoc</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/xmlworker-5.5.9-javadoc.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>xmlworker-5.5.9-sources</groupId>
+			<artifactId>xmlworker-5.5.9-sources</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/xmlworker-5.5.9-sources.jar</systemPath>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.bytedeco/javacv -->
+<!-- https://mvnrepository.com/artifact/org.bytedeco/javacv 
+<dependency>
+    <groupId>org.bytedeco</groupId>
+    <artifactId>javacv</artifactId>
+    <version>0.8</version>
+</dependency>-->
+
+		<dependency>
+			<groupId>xmlworker-5.5.9</groupId>
+			<artifactId>xmlworker-5.5.9</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/xmlworker-5.5.9.jar</systemPath>
+		</dependency>
+		<dependency>
+    			<groupId>mysql</groupId>
+    			<artifactId>mysql-connector-java</artifactId>
+    			<version>5.1.39</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.healthmarketscience.sqlbuilder</groupId>
+            <artifactId>sqlbuilder</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+        
+<!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+<dependency>
+    <groupId>org.quartz-scheduler</groupId>
+    <artifactId>quartz</artifactId>
+    <version>2.3.0</version>
+</dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.scribejava/scribejava-core -->
+<!-- https://mvnrepository.com/artifact/com.github.scribejava/scribejava-core -->
+<dependency>
+    <groupId>com.github.scribejava</groupId>
+    <artifactId>scribejava-core</artifactId>
+    <version>5.2.0-java7again</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.instamojo/instamojo-java -->
+<dependency>
+    <groupId>com.instamojo</groupId>
+    <artifactId>instamojo-java</artifactId>
+    <version>2.0.2</version>
+</dependency>
+
+<dependency> 
+    <groupId>com.opencsv</groupId> 
+    <artifactId>opencsv</artifactId> 
+    <version>4.1</version> 
+</dependency>
+
+		<dependency>
+			<groupId>com.github.loggly.log4jSyslogWriter64k</groupId>
+			<artifactId>log4jSyslogWriter64k</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
