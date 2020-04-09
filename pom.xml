@@ -175,6 +175,11 @@
 			<systemPath>${project.basedir}/WebContent/WEB-INF/lib/commons-logging-1.0.4.jar</systemPath>
 		</dependency>
 
+		<dependency>
+			<groupId>com.mashape.unirest</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>1.4.9</version>
+		</dependency>
 
 		<dependency>
 			<groupId>dom4j-1.6.1</groupId>
